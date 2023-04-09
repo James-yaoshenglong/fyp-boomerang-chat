@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package ssnet;
+
+// The greeting service definition.
+service SSNetService {
+  rpc SendMsg (PayloadWithRes) returns (Empty) {}
+  rpc RecvMsg (PayloadWithRes) returns (Payload) {}
+}
+
+message Empty {
+
+}
+
+message Payload {
+  string data = 1;
+}
+
+message PayloadWithRes {
+  uint64 packageId = 1;
+  uint64 sendId = 2;
+  uint64 recvId = 3;
+  string data = 4;
+}
